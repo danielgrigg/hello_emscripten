@@ -1,0 +1,2 @@
+g++ -o hello_world_native hello_world.cpp
+./hello_world_native

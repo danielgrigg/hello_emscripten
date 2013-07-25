@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LLVM=llvm/bin ./emscripten/em++ hello_world.cpp -o hello_world.html

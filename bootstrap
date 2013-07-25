@@ -1,0 +1,21 @@
+#!/bin/sh
+
+brew install node 2> /dev/null
+
+if [[ ! -e /usr/bin/python2 ]]; then
+  sudo ln -s /usr/bin/python2.7 /usr/bin/python2
+fi
+
+if [[ ! -d emscripten ]]; then
+  git clone git://github.com/kripken/emscripten.git
+fi
+
+if [[ ! -d llvm ]]; then
+  curl http://llvm.org/releases/3.2/clang+llvm-3.2-x86_64-apple-darwin11.tar.gz > llvm.tgz
+  tar zvf llvm.tgz
+  rm llvm.tgz
+  ln -s clang+llvm-3.2-x86_64-apple-darwin11 llvm
+fi
+
+LLVM=llvm/bin ./emscripten/emcc
+
