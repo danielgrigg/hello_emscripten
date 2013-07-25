@@ -12,8 +12,7 @@ fi
 
 if [[ ! -d llvm ]]; then
   curl http://llvm.org/releases/3.2/clang+llvm-3.2-x86_64-apple-darwin11.tar.gz > llvm.tgz
-  tar zvf llvm.tgz
-  rm llvm.tgz
+  tar xzf llvm.tgz
   ln -s clang+llvm-3.2-x86_64-apple-darwin11 llvm
 fi
 
